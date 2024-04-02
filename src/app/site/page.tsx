@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+import { pricingCards } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +15,15 @@ export default function Home() {
           <Image src={"/assets/preview.png"} alt="banner image" height={1200} width={1200} className="rounded-tl-2xl rounded-tr-2xl border-2 border-muted"/>
         </div>
         <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
+      </section>
+      <section className="flex justify-center items-center flex-col gap-4 md:mt-20">
+        <h2 className="text-4xl text-center">Choose what fits you right</h2>
+        <p className="text-muted-foreground text-center">Our straightforward pricing plans are tailored to meed your needs. If 
+        {" you're"} not <br/>
+        ready to commit you can get started for free</p>
+        <div className="flex items-center gap-4 flex-wrap mt-6">{pricingCards.map((card) => (
+          <Card key={card.title}>{card.description}</Card>
+        ))}</div>
       </section>
     </main>
   );
